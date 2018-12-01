@@ -1,0 +1,143 @@
+
+八皇后问题
+
+1：非递归实现
+
+#include<stdio.h>
+#include<stdlib.h>
+ 
+int col[8] = { 0,0,0,0,0,0,0,0};//查看那一列是否放皇后
+int right[15] = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };//每一条斜线
+int left[15] = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
+int Q[8];
+void EightQueen()
+{
+    int top=-1, i=0, j=0;
+    while (top != 7)
+    {
+        //每一行的八列
+        for (; j < 8; j++)
+        {
+            if (!col[j] && !left[i + j] && !right[7 - i + j])
+            {
+                Q[++top] = j;
+                col[j] = left[i + j] = right[7 - i + j] = 1;
+                i++;
+                j = 0;
+                break;
+            }
+        }
+        if (j == 8)
+        {
+            i--;
+            col[j] = left[i + j] = right[7 - i + j] = 0;
+            j++;
+        }
+    }
+}
+ 
+void printEightQueen()
+{
+    //输出一组解
+    for (int i = 0; i < 8; i++)
+        printf("%d,%d\t", i, Q[i]);
+}
+ 
+int main(void)
+{
+    EightQueen();
+    printEightQueen();
+    return 0;
+ 
+}
+
+
+
+
+
+
+
+ 
+2：递归实现
+
+#include<stdio.h>
+#include<stdlib.h>
+#define N  8  //列
+ 
+ //判断此列是否存在皇后。若有，则为1；没有，则为0
+int col[N] = { 0 };
+//判断皇后所在的右对角线是否存在皇后。若有，则为1；没有，则为0
+//在右对角线N-1+i-j
+int right[2 * N - 1] = { 0 };
+ 
+//判断皇后所在的左对角线是否存在皇后。若有，则为1；没有，则为0
+//在右对角线i+j
+int left[2 * N - 1] = { 0 };
+ 
+//用栈存储皇后的列号，行号是下标
+int Q[N] = { -1 };
+int cnt;
+ 
+ 
+void print()
+{
+	printf("-----第%d组解---------------\n", ++cnt);
+	for (int i = 0; i < N; ++i)
+	{
+		for (int j = 0; j < N; ++j) 
+		{
+			if (Q[i] == j)
+				printf("1\t");
+			else 
+				printf("0\t");
+		}
+		printf("\n");
+	}
+	printf("\n");
+}
+ 
+ 
+ 
+void Queen(int i) {
+	if (i == 8)
+	{
+		print();
+	}
+	//当第一行最后一个元素放完后，递归结束
+	for (int j = 0; j < N; j++)
+	{
+		if (!col[j] && !left[i + j] && !right[N - 1 + i - j])
+		{
+			Q[i] = j;
+			col[j] = left[i + j] = right[N - 1 + i - j] = 1;
+			Queen(i + 1);
+			col[j] = left[i + j] = right[N - 1 + i - j] = 0;
+		}
+	}
+}
+ 
+ 
+ 
+ 
+int main(void)
+{
+	Queen(0);
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

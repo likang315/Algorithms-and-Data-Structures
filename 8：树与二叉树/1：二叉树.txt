@@ -1,0 +1,111 @@
+
+二叉树
+
+1：创建二叉查找树
+
+#include<stdio.h>
+#include<stdlib.h>
+#define N 10
+typedef struct node
+{
+	int data;
+	struct node * left;
+	struct node * right;
+}BTNode;
+
+
+BTNode * creatLink(int a[], int n)                 //创建二叉查找树
+{
+	BTNode *root, *c, *q, *p;
+	root = (BTNode *)malloc(sizeof(BTNode));    //创建根结点
+	root->data = a[0];
+	root->left = root->right = NULL;                
+	for (int i = 1; i < n; i++)
+	{
+		p = (BTNode *)malloc(sizeof(BTNode));
+		p->data = a[i];
+		p->left = p->right = NULL;              //创建其余结点
+		c = root;
+		while (c)                                //从根开始比较大小找到叶子节点，并且有指针q
+		{
+			q = c;
+			if (c->data > p->data)
+				c = c->left;
+			else
+				c = c->right;
+		}
+			if (q->data > p->data)         //比较大小挂结点
+				q->left = p;
+			else
+				q->right = p;
+		}
+	}
+	return root;
+}
+
+int main()
+{
+	int a[N] = { 1,2,3,4,5,6,7,8,9,0 };
+	BTNode *root;
+	root=CreatLink(a, N);
+	if (root)
+		printf("CreatLink successful!");
+	else
+		printf("CreatLink Failure !");
+	return 0;
+}
+
+
+
+
+2：二叉树非递归按层遍历
+
+#include<stdio.h>
+#include<stdlib.h>
+#define N 100
+typedef struct node
+{
+	int data;
+	struct node *left;
+	struct node *right;
+}BTNode;
+
+
+void LevelOrder(BTNode * root)
+{
+	BTNode * p;
+	BTNode **q;
+	int front, rear;
+	q = (BTNode **)malloc((N + 1)*sizeof(BTNode *));        //创建队列
+	front = rear = 0;
+	q[++rear] = root;
+	while (front - rear)
+	{
+		p = q[++front];                               //按层输入的，肯定是按层输出的                            
+		printf("%5d", p->data);
+		if (p->left)
+			q[++rear] = p->left;
+		if (p->right)
+			q[++rear] = p->right;
+	}
+	free(q);
+}
+
+int main()
+{
+	int a[N] = { 1,2,3,4,5,6,7,8,9,0 };
+	BTNode *root;
+	root = CreatLink(a, N);
+	if (root)
+		printf("CreatLink successful!\n");
+	else
+		printf("CreatLink Failure !\n");
+	LevelOrder(root);
+
+
+	return 0;
+}
+
+
+
+

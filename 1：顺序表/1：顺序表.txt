@@ -1,0 +1,104 @@
+
+一维数组是特殊的顺序表
+
+重点：插入和删除     都是顺序表的移动
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#define MAXSIZE   200
+typedef struct
+{
+	int s[MAXSIZE];
+	int length;    //线性表长度
+}seqlist;
+
+void CreatSeqlist(seqlist * p)    //顺序表的初始化
+{
+	int i;
+	for ( i = 1; i < 10; i++)         //把0位置空出来，给有数据空间赋值
+		p->s[i] = i;
+	p->length = i;                        //统计有多少有数据的空间
+}
+
+
+seqlist * find(seqlist *p, int x)                //查找
+{
+	int i = 1;
+	while (i <= p->length && p->s[i] - x)
+		i++;
+	if (i > p->length)
+		return 0;
+	else
+		return p->s[i];
+}
+
+
+int insert(seqlist *p, int i, int x)
+{
+	int j;
+	if(p->length == MAXSIZE)               
+	{
+		printf("the list is FULl!");
+		return 0;
+	}
+	if (i<1 || i>p->length + 1)
+	{
+		printf("the location is wrong!");
+		return 0;
+	}
+	for ( j = p->length-1; j >=i; j--)                   //i值后移，插入到i的前面
+		p->s[j + 1] = p->s[j];
+	p->s[j] = x;
+	p->length++;
+	return 1;
+}       
+
+
+
+int delete1(seqlist * p,int key）
+{
+	int i,j;
+	for(i = j = 0; i < p->length; i++)
+	if (p->s[i] - key)
+		p->s[j++] = p->s[i];
+	return j;
+
+}
+
+
+
+int main(void)
+{
+	seqlist * p;
+	int i, x,m,t,key;
+	p = (seqlist *)malloc(sizeof(seqlist));
+	CreatSeqlist(p);
+	printf("请输入需查找的值=");                          // 查找的主调部分
+	scanf("%d", &x);
+	t=find(p,x);
+	if (t)
+		printf("%d", t);
+	else
+		printf("Not found ! ");
+
+
+	printf("请输入插入到顺序表的什么位置i和插入值x");              //插入的主调部分
+	scanf("%d%d", &i,&x); 
+	m=insert(p, i, x);
+	if (m)
+		printf("insert is succeeful !");
+	else
+		printf("insert is failure ! ");
+
+
+
+	printf("请输入删除的key");                                           //删除的主调部分
+	scanf("%d", &key);
+`	m=delete1(p, key);
+	for (i = 1; i < m; i++)
+	printf("%d", p->s[i]);
+
+	return 0;
+
+}

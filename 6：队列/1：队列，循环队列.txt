@@ -1,0 +1,34 @@
+队列，循环队列
+
+1： 实现约瑟夫环问题                 （和单向循环列表的效率是一样的）
+
+
+#include<stdio.h>
+#include<stdlib.h>
+void JosephusRing(int * Q, int n, int s)
+{
+	int front = 0, rear = n, i;
+	while (front - rear)
+	{
+		for (i = 0; i < s - 1; i++)
+		{
+			front = (front + 1) % n;                 
+			rear = (rear + 1) % n;              //入队操作
+			Q[rear] = Q[front];
+		}
+		front = (front+1) % n;                       //出队操作
+		printf("%5d", Q[front]);
+	}
+}
+
+int main(void)
+{
+	int * Q;
+	int n, s;
+	printf("Please input n and s:");
+	scanf("%d%d",&n, &s);                                //n为几个数据，s为出的小孩
+	Q = (int *)malloc((n + 1) * sizeof(int));            //n+1第一个不存储数据，编号为从零开始
+	for (int i = 1; i < n + 1; i++) 
+		Q[i] = i;
+	JosephusRing(Q, n, s);
+}

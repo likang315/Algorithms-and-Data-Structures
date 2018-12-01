@@ -1,0 +1,86 @@
+
+ 查找表：是由同类型的数据元素构成的集合
+    
+ 操作:
+	1：查询某个“特定的”数据元素是否在查找表中
+	2：检索某个“特定的”数据元素的各种属性
+        3：在查找表中插入一个数据元素
+        4：从查找表中删去某个数据元素
+
+按照记录在表中的位置和它的关键字之间的关系分为：
+   静态查找表和动态查找表：都是记录在表中的位置和它的关键字之间不存在一个确定的关系
+   Hash表：记录在表中的位置和它的关键字之间存在一个确定的关系
+
+静态查找表：仅作查询和检索操作的查找表。
+
+动态查找表：在查找过程中同时插入很删除操作
+
+哈希表：根据设定的哈希函数 H(key) 和所选中的处理冲突的方法，将一组关键字映象到一个有限的、地址连续的地址集 (区间) 上，
+	并以关键字在地址集中的“映象”作为相应记录在表中的存储位置，如此构造所得的查找表称之为“哈希表”
+
+查找性能分析：
+    最大查找长度 (Maximum Search Length,MSL):对关键字的最多比较次数
+    平均查找长度 (Average Search Length,ASL):对关键字的平均比较次数
+ 
+
+
+
+1：顺序查找，ASL：O(n):(n+1)/2,MSL：O(n):n
+
+int search(int a[], int n, int key)
+{                                            
+	int i;
+	for (i = 0; i < n && a[i] - key; i++);
+	if (i == n)
+		return -1;
+	else
+		return i;
+}
+
+
+2：二分查找,要求线性表必须是有序的
+	ASL：O(nlogn)
+	
+
+int binarySearch(int a[],int low,int high,int key)       //递归调用
+{
+	int mid;
+	if (low > high)
+		return -1;                              //-1，没有找到
+	else
+	{
+		mid = (low + high) / 2;
+		if (a[mid] == key)
+			return mid;
+		else
+			if (a[mid] > key)
+				return Halefsearch(a, low ,mid - 1, key);
+			else
+				return Halfsearch(a, mid + 1, high, key);
+
+	}
+}
+
+
+
+int binarySearch(int a[], int low, int high, int key)		 //非递归查找
+{                                                         
+	int mid;
+	while(low <= high)
+	{
+		mid = (low + high) / 2;
+		if (a[mid] == key)
+			return mid;
+		if (a[mid] > key)
+			high = mid - 1;
+		else
+			low = mid + 1;
+	}
+	return -1;
+}
+
+
+
+
+
+

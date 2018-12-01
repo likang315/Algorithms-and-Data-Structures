@@ -1,0 +1,103 @@
+
+栈是一存储的思想
+
+
+   栈的应用
+
+1：把十进制的数转化为二进制输出    （什么问题需倒序的时候用栈）
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#define  size  100
+
+int exchangeBinary(int * s, int x)
+{
+	int top = -1;                                 //栈顶指针（其实不是指针是数）
+	while (x)
+	{
+		if (top - size)                     //判断栈是否满，栈满不能入栈
+		{
+			s[++top] = x % 2;
+			x = x / 2;
+		}
+		else
+			printf("the stack isn't enough!");
+	}
+	return top;
+}
+
+void printbinary(int * s, int top)
+{
+	while (top != -1)                            //出栈，栈空不能出栈
+		printf("%d", s[top--]);
+}
+
+
+
+int main(void)
+{
+	int * s;
+	int x, top;
+	s = (int *)malloc(size * sizeof(int));             //创建栈
+	printf("please input a integer:");
+	scanf("%=d", &x);
+	top = exchangebinary(s, x);        
+	printbinary(s, top);
+	free(s);
+}
+
+
+
+2： 用栈来判断括号是否匹配
+
+
+#include<stdio.h>
+#include<stdlib.h>
+int ParenthesisMatching(char s[])
+{
+	int i, top, tag;
+	i = 0, top = -1;
+	while (s[i])
+	{
+		if (s[i] == '(')
+			top++;
+		else
+			if (s[i] == ')')
+			{
+				if (top == -1)
+					break;
+				else
+					top--;
+			}
+		i++;
+	}
+	tag = (!s[i] && (top == -1));
+	return tag;
+}
+
+
+int main(void)
+{
+	char s[100];                        //没有用栈，只是用到了栈的思想
+	int tag;
+	printf("Please input Parenrthesis expression:");
+	gets(s);
+	tag = ParenthesisMatching(s);
+	if (tag)
+		printf("yes!");
+	else
+		printf("no!");
+}
+
+
+
+
+   
+
+
+
+
+
+
+

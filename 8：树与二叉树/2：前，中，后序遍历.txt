@@ -1,0 +1,119 @@
+
+
+二叉查找树的前，中，后序遍历及其调用
+
+
+1：递归
+
+void FOrder(BTNode * root)                 //前序遍历
+{
+	if (root)
+	{
+		printf("%5d", root->data);
+		FOrder(root->left);
+		FOrder(root->right);
+	}
+}
+
+
+void MidOrder(BTNode * root)           //中序遍历
+{
+	if (root)
+	{
+		MidOrder(root->left);
+		printf("%5d", root->data);
+		MidOrder(root->right);
+	}
+}
+
+void LOrder(BTNode * root)               //后序遍历
+{
+	if (root)
+	{
+		LOrder(root->left);
+		LOrder(root->right);
+		printf("%5d", root->data);
+	}
+}
+
+
+
+int main()
+{
+	int a[N] = { 1,2,3,4,5,6,7,8,9,0 };
+	BTNode *root;
+	root=CreatLink(a, N);
+	if (root)
+		printf("CreatLink successful!\n");
+	else
+		printf("CreatLink Failure !\n");
+
+	FOrder(root);
+	printf("\n");
+	MidOrder(root);
+	printf("\n");
+	LOrder(root);
+	return 0;
+}
+
+
+
+
+2：非递归
+
+
+前序遍历
+
+#include<stdio.h>
+#include<stdlib.h>
+#define N 100
+typedef struct node
+{
+	int data;
+	struct node *left;
+	struct node *right;
+}BTNode;
+
+
+void FOrder(BTNode * root )
+{
+	BTNode **s;
+	BTNode *p;
+	int top=-1;
+	//创建栈
+	s = (BTNode **)malloc((N + 1) * sizeof(BTNode *));
+	//初始化
+	s[++top] = root;
+	//非递归遍历
+	while (top != -1)      //前序遍历，顺序决定
+	{
+		p = s[top--];
+		printf("%5d", p->data);
+		if (p->right)
+			s[++top] = p->right;
+		if (p->left)
+			s[++top] = p->left;
+	}
+	free(s);
+}
+
+
+
+
+int main()
+{
+	int a[10] = { 1,2,3,4,5,6,7,8,9,0 };
+	BTNode *root;
+	root = CreatLink(a, 10);
+	if (root)
+		printf("CreatLink successful!\n");
+	else
+		printf("CreatLink Failure !\n");
+	FOrder(root);
+	return 0;
+}
+
+
+
+
+

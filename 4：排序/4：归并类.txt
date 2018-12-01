@@ -1,0 +1,60 @@
+
+归并排序：时间复杂度：O(nlogn)，最优时：O(nlogn)，最差时：O(nlogn)，稳定
+
+　　递归实现的归并排序是采用分治方法，我们将一个大问题分割成小问题分别解决，然后用所有小问题的答案来解决整个大问题
+
+　　归并排序算法主要依赖归并(Merge)操作
+
+
+递归：从上到下
+
+void Merge(int a[], int left, int mid, int right)   // 合并两个已排好序的数组a[left...mid]和a[mid+1...right]
+{
+    int i,j,k;
+    int n1 = mid - left + 1;      
+    int n2 = right - mid;
+    int L[n1],R[n2];                
+
+    for( i = 0 ; i<n1 ; i++)
+	L[i] = a[left+i];
+    for( j = 0 ; j<n2 ; j++)
+	R[j] = a[mid+1+j];
+	
+    i=j=0;
+    k=left;
+    while (i < n1 && j < n2 )
+    {
+       if(L[i] <= R[j])     //稳定性
+	  a[k++] = L[i++];
+       else
+	  a[k++] = R[j++];
+    }
+	
+    while (i < n1)
+	   a[k++] = L[i++];
+    while (j < n2)
+	   a[k++] = R[j++];
+	
+}
+
+void MergeSort(int a[], int left, int right)   
+{
+    if (left < right)    // 当待排序的序列长度为1时，递归开始回溯，进行merge操作
+    {
+	int mid = (left + right) / 2;
+	MergeSortRecursion(a, left, mid);
+	MergeSortRecursion(a, mid + 1, right);
+	Merge(a, left, mid, right);
+    } 
+}
+
+
+非递归：从下到上
+
+
+
+
+
+
+
+
