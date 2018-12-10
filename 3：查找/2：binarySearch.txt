@@ -1,0 +1,57 @@
+
+二分查找,要求线性表必须是有序的
+	ASL：O(logn)
+	
+
+int binarySearch(int a[],int low,int high,int key)       //递归调用
+{
+	int mid;
+	if (low > high)
+		return -1;                              //-1，没有找到
+	else
+	{
+		mid = (low + high) / 2;
+		if (a[mid] == key)
+			return mid;
+		else if (a[mid] > key)
+			return Halefsearch(a, low ,mid - 1, key);
+		     else
+			return Halfsearch(a, mid + 1, high, key);
+
+	}
+}
+
+
+
+int binarySearch(int a[], int low, int high, int key)		 //非递归查找
+{                                                         
+	int mid;
+	while(low <= high)
+	{
+		mid = (low + high) / 2;
+		if (a[mid] == key)
+			return mid;
+		if (a[mid] > key)
+			high = mid - 1;
+		else
+			low = mid + 1;
+	}
+	return -1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

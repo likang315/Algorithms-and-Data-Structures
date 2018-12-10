@@ -1,4 +1,4 @@
-
+﻿
 单向链表
 
 typedef struct node        //结点结构，类型重命名

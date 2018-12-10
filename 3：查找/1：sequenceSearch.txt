@@ -1,4 +1,4 @@
-
+﻿
  查找表：是由同类型的数据元素构成的集合
     
  操作:
@@ -25,7 +25,7 @@
 
 
 
-1：顺序查找，ASL：O(n):(n+1)/2,MSL：O(n):n
+顺序查找，ASL：O(n):(n+1)/2,MSL：O(n):n
 
 int search(int a[], int n, int key)
 {                                            
@@ -38,46 +38,8 @@ int search(int a[], int n, int key)
 }
 
 
-2：二分查找,要求线性表必须是有序的
-	ASL：O(nlogn)
-	
-
-int binarySearch(int a[],int low,int high,int key)       //递归调用
-{
-	int mid;
-	if (low > high)
-		return -1;                              //-1，没有找到
-	else
-	{
-		mid = (low + high) / 2;
-		if (a[mid] == key)
-			return mid;
-		else
-			if (a[mid] > key)
-				return Halefsearch(a, low ,mid - 1, key);
-			else
-				return Halfsearch(a, mid + 1, high, key);
-
-	}
-}
 
 
-
-int binarySearch(int a[], int low, int high, int key)		 //非递归查找
-{                                                         
-	int mid;
-	while(low <= high)
-	{
-		mid = (low + high) / 2;
-		if (a[mid] == key)
-			return mid;
-		if (a[mid] > key)
-			high = mid - 1;
-		else
-			low = mid + 1;
-	}
-	return -1;
-}
 
 
 
