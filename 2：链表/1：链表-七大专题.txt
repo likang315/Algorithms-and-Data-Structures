@@ -194,6 +194,8 @@ void endPrintLink(ElemSN * h)
 }
 
 
+4>：头插，适用于带表头的单向链表倒叙输出
+
 
 
 
@@ -383,7 +385,7 @@ int main(void)
 
    创建，输出，查找，删除，插入   （操作的是下一个结点，所以插入和删除无需两指针联动）
 
-ElemSN * creaklink(int a[], int n)
+ElemSN * creakLink(int a[], int n)
 {
 	ElemSN * p, *h;
 	h=p=(ElemSN *)malloc(sizeof(ElemSN));
@@ -391,20 +393,21 @@ ElemSN * creaklink(int a[], int n)
 	for (int i = 0; i < n; i++)
 	{
 		p = p->next = (ElemSN * )malloc(sizeof(ElemSN));
-		p->next = NULL;
 		p->data = a[i];
+		p->next = NULL;
+		
 	}
 	return h;
 }
 
-void printlink(ElemSN *h)
+void printLink(ElemSN *h)
 {
 	ElemSN * p;
 	for (p = h; p->next; p = p->next)
 		printf("%d", p->next->data);
 }
 
-void delkeynode(ElemSN *h, int key)
+void delKeyNode(ElemSN *h, int key)
 {
 	ElemSN *p, *pdel;
 	for (p = h; p->next&&p->next->data - key; p = p->next);           //查找和删除（无重复值）
@@ -418,9 +421,9 @@ void delkeynode(ElemSN *h, int key)
 		}
 }
 
-void  backprintlink(ElseSN *head)
+void  backPrintLink(ElemSN *head)
 {
-	ElesSN * p,* r;
+	ElemSN * p,* r;
 	r=head->next;
 	head->next=NULL;
 	while(r)
@@ -438,12 +441,12 @@ int main(void)
 	int a[N] = {9,7,4,3,4,5};
 	int key;
 	ElemSN * head = NULL ,*p;
-	head = creaklink(a, N);
+	head = creakLink(a, N);
 	printf("please input key:");
 	scanf("%d", &key);
-	delkeynode( head, key);
-	backprintlink(head);
-	printlink(head);
+	delKeyNode( head, key);
+	backPrintLink(head);
+	printLink(head);
 	return 0;
 }
 
@@ -464,10 +467,10 @@ typedef struct node        //结点结构，类型重命名
 	struct node * next;
 }ElemSN;
 
-ElemSN * creatlink(int a[], int n)
+1>：建一个挂一个
+ElemSN * creatLink(int a[], int n)
 {
-	ElemSN * h, *p, *t=NULL;
-	h = NULL;
+	ElemSN * h= NULL, *p, *t=NULL;
 	for (int i = 0; i < n; i++)
 	{
 		p=(ElemSN *)malloc(sizeof(ElemSN));
@@ -487,7 +490,11 @@ ElemSN * creatlink(int a[], int n)
 	return h;
 }
 
-void * printlink(ElemSN *h)
+
+2>：正向建链，然后让尾节点指向头节点
+
+
+void * printLink(ElemSN *h)
 {
 	ElemSN * p=NULL;
 	p = h;
@@ -497,7 +504,7 @@ void * printlink(ElemSN *h)
 	} while (p != h);                               //先执行一次循环
 }
 
-ElemSN * delkeynode(ElemSN *h, int key)
+ElemSN * delKeyNode(ElemSN *h, int key)
 {
 	ElemSN *p, *q;
 	p = h; q = NULL;
@@ -516,10 +523,11 @@ ElemSN * delkeynode(ElemSN *h, int key)
 	{
 		if (p == h)
 		{
-			for (q = h; q->next - h; q = q->next);         //删头结点时给头结点在尾指针上加前驱
+			for (q = h; q->next - h; q = q->next);         //删头结点时在尾指针上加前驱
 			h = h->next;
 		}
 		q->next = p->next;
+		p->next=NULL;
 		free(p);
 	}
 
@@ -534,40 +542,40 @@ int main(void)
 	int a[N]= {1,3,5,7,8,9};
 	int key;
 	ElemSN * head= NULL, *p, *h=NULL;
-	head=creatlink(a,N);
+	head=creatLink(a,N);
 	printf("please input key:");
 	scanf("%d", &key);
-	head=delkeynode(head, key);
-	printlink(head);
+	head=delKeyNode(head, key);
+	printLink(head);
 	return 0;
 }
 
 
-2>：约瑟夫环s找出并按顺序输出
-
-
+2>：约瑟夫环s找出,并按顺序输出
 
 ElemSN * TosephusRing(ElemSN * t, int s)                //（在单向循环链表传尾指针比头指针更加高效）
 {
-	ElemSN * h1 = NULL, *t1=NULL,*h;
+	ElemSN * h1 = NULL, *t1=NULL,*p;
 	while (t - t->next)                             //最后一个结点跳出循环
 	{
 		for (int i = 0; i < s - 1; i++)
 			t = t->next;
-		    	h = t->next;
-			t->next = h->next;
-			h->next = NULL;
+		    	p = t->next;
+			t->next = p->next;
+			p->next = NULL;
+
 			if (!h1)
-				h1 = t1= h;
+				h1 = t1= p;
 			else
-				t1 = t1->next = h;       //挂尾链挪尾指针
+				t1 = t1->next = p;       //挂尾链挪尾指针
 	}
+
 	if (!h1)                                    //判断是否只有一个结点
 		h1 = t;
 	else
 		t1->next = t;
 		t->next = NULL;
-		return h1;
+	return h1;
 
 }
 

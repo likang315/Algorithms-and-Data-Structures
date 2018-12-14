@@ -1,9 +1,9 @@
-
+﻿
 
 1：判断两个链表是否有交结点
 
 
-ElemSN * inserttogether(ElemSN * h1, ElemSN *h2)
+ElemSN * insertTogether(ElemSN * h1, ElemSN *h2)
 {
 	ElemSN * p1, *p2;
 	int count = 0;
@@ -21,7 +21,11 @@ ElemSN * inserttogether(ElemSN * h1, ElemSN *h2)
 		count = -count;
 	}
 	for (; count; p1 = p1->next, count--);                 //跑过多余项
-	for (; p1 - p2; p1 = p1->next, p2 = p2->next);          //判断指向是不是同结点
+	for (; p1 && p2 && p1 - p2; p1 = p1->next, p2 = p2->next);          //判断指向是不是同结点
+	if (!(p1 || p2))
+	{
+		printf("NOT Together!");
+	}
 	return p1;
 }
  
@@ -46,6 +50,7 @@ ElemSN * combine(ElemSN * h1, ElemSN * h2)
 			h2 = h2->next;
 		}
 		p->next = NULL;
+
 		if (!h)
 			h = t = p;
 		else
@@ -55,12 +60,9 @@ ElemSN * combine(ElemSN * h1, ElemSN * h2)
 		p = h1;
 	else
 		p = h2;
-		t->next = p;
-		return h;
+	t->next = p;
+	return h;
 }
-
-
-
 
 
 
