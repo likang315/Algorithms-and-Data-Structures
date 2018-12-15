@@ -582,6 +582,31 @@ ElemSN * TosephusRing(ElemSN * t, int s)                //（在单向循环链�
 
 
 
+8：双向链表
+	
+typedef struct node
+{
+    int data;
+    struct node * prev;
+    struct node * next;
+}ElemSN;
+
+	删除
+ 	p->next->prev = p->prev;
+ 	p->prev->next = p->next;
+	free(p);
+	
+	插入
+	p->prev = q->prev;
+	p->next = q;
+	q->prev->next = p;
+	q->prev = p;
+
+
+
+
+
+
 
 
 

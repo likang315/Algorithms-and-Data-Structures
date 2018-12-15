@@ -1,5 +1,5 @@
-
-二叉树
+﻿
+二叉树：存放二叉树的结构，二叉链表（双向链表）
 
 1：创建二叉查找树
 
@@ -29,16 +29,16 @@ BTNode * creatLink(int a[], int n)                 //创建二叉查找树
 		while (c)                                //从根开始比较大小找到叶子节点，并且有指针q
 		{
 			q = c;
-			if (c->data > p->data)
+			if (p->data < c->data)
 				c = c->left;
 			else
 				c = c->right;
 		}
-			if (q->data > p->data)         //比较大小挂结点
-				q->left = p;
-			else
-				q->right = p;
-		}
+			
+		if (p->data < q->data)         //比较大小挂结点
+			q->left = p;
+		else
+			q->right = p;
 	}
 	return root;
 }
@@ -47,7 +47,7 @@ int main()
 {
 	int a[N] = { 1,2,3,4,5,6,7,8,9,0 };
 	BTNode *root;
-	root=CreatLink(a, N);
+	root=creatLink(a, N);
 	if (root)
 		printf("CreatLink successful!");
 	else
@@ -71,7 +71,7 @@ typedef struct node
 }BTNode;
 
 
-void LevelOrder(BTNode * root)
+void levelOrder(BTNode * root)
 {
 	BTNode * p;
 	BTNode **q;
@@ -95,12 +95,12 @@ int main()
 {
 	int a[N] = { 1,2,3,4,5,6,7,8,9,0 };
 	BTNode *root;
-	root = CreatLink(a, N);
+	root = creatLink(a, N);
 	if (root)
 		printf("CreatLink successful!\n");
 	else
 		printf("CreatLink Failure !\n");
-	LevelOrder(root);
+	levelOrder(root);
 
 
 	return 0;

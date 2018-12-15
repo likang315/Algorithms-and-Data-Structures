@@ -1,4 +1,4 @@
-
+﻿
 一维数组是特殊的顺序表
 
 重点：插入和删除     都是顺序表的移动
@@ -65,7 +65,6 @@ int delete1(seqlist * p,int key）
 	return j;
 
 }
-
 
 
 int main(void)

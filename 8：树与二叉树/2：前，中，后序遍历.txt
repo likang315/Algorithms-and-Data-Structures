@@ -1,11 +1,11 @@
+﻿
 
-
-二叉查找树的前，中，后序遍历及其调用
+二叉查找树的前(先)，中，后序遍历
 
 
 1：递归
 
-void FOrder(BTNode * root)                 //前序遍历
+void preOrder(BTNode * root)                 //前序遍历
 {
 	if (root)
 	{
@@ -16,7 +16,7 @@ void FOrder(BTNode * root)                 //前序遍历
 }
 
 
-void MidOrder(BTNode * root)           //中序遍历
+void inOrder(BTNode * root)           //中序遍历
 {
 	if (root)
 	{
@@ -26,7 +26,7 @@ void MidOrder(BTNode * root)           //中序遍历
 	}
 }
 
-void LOrder(BTNode * root)               //后序遍历
+void postOrder(BTNode * root)               //后序遍历
 {
 	if (root)
 	{
@@ -37,22 +37,21 @@ void LOrder(BTNode * root)               //后序遍历
 }
 
 
-
 int main()
 {
 	int a[N] = { 1,2,3,4,5,6,7,8,9,0 };
 	BTNode *root;
-	root=CreatLink(a, N);
+	root=creatLink(a, N);
 	if (root)
 		printf("CreatLink successful!\n");
 	else
 		printf("CreatLink Failure !\n");
 
-	FOrder(root);
+	preOrder(root);
 	printf("\n");
-	MidOrder(root);
+	inOrder(root);
 	printf("\n");
-	LOrder(root);
+	postOrder(root);
 	return 0;
 }
 
@@ -75,17 +74,15 @@ typedef struct node
 }BTNode;
 
 
-void FOrder(BTNode * root )
+void preOrder(BTNode * root )
 {
 	BTNode **s;
 	BTNode *p;
 	int top=-1;
 	//创建栈
 	s = (BTNode **)malloc((N + 1) * sizeof(BTNode *));
-	//初始化
 	s[++top] = root;
-	//非递归遍历
-	while (top != -1)      //前序遍历，顺序决定
+	while (top ！= -1)      //前序遍历，栈
 	{
 		p = s[top--];
 		printf("%5d", p->data);
@@ -99,19 +96,75 @@ void FOrder(BTNode * root )
 
 
 
+中序遍历
 
-int main()
+void inOrder(BTNode * root )
 {
-	int a[10] = { 1,2,3,4,5,6,7,8,9,0 };
-	BTNode *root;
-	root = CreatLink(a, 10);
-	if (root)
-		printf("CreatLink successful!\n");
-	else
-		printf("CreatLink Failure !\n");
-	FOrder(root);
-	return 0;
+	BTNode **s;
+	BTNode *p;
+	int top=-1;
+	//创建栈
+	s = (BTNode **)malloc((N + 1) * sizeof(BTNode *));
+	p = root;
+	while (top != -1 || p)      //中序遍历,利用栈，用 || ，出根时栈空
+	{
+		while(p)
+		{
+			s[++top]=p;
+			p=p->left;
+		}
+		if(top != -1)		//出栈时需要判断栈不为空
+		{
+			p = s[top--];
+			printf("%d ",p->data);
+			p=p->right;	
+		}
+	}
+	free(s);
 }
+
+
+
+
+后序遍历
+	前序：根左右  逆后序：根右左
+  
+  逆后序,入栈输出得后序遍历
+	
+void postOrder(BTNode * root )
+{
+	BTNode **s1,**s2;
+	BTNode *p;
+	int top1=-1,top2=-1;
+	//创建栈
+	s1 = (BTNode **)malloc((N + 1) * sizeof(BTNode *));
+	s2 = (BTNode **)malloc((N + 1) * sizeof(BTNode *));
+	s1[++top1] = root;
+	while(top != -1)
+	{	
+		p = s1[top1--];
+		s2[++top2] = p;
+		if(p->left)
+			s1[++top1]=p->left;
+
+		if(p->right)	
+			s1[++top1]=p->right;
+	}
+	while(top2 != -1)
+	{
+		p = s2[top2--];
+		printf("%5d",p->data);	
+	}
+	
+	free(s1);
+	free(s2);
+}
+
+
+
+
+
+
 
 
 
