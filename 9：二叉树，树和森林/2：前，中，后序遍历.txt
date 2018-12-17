@@ -1,5 +1,4 @@
 ﻿
-
 二叉查找树的前(先)，中，后序遍历
 
 
@@ -159,13 +158,6 @@ void postOrder(BTNode * root )
 	free(s1);
 	free(s2);
 }
-
-
-
-
-
-
-
 
 
 

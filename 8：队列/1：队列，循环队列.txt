@@ -1,0 +1,49 @@
+﻿
+队列，循环队列：给线性表加上限制条件(FIFO)
+
+入队时，队满不能入队
+	rear =(rear+1) % size; 
+	(rear+1)%size = front;（队满）
+出队时，队空不能入队 
+	front=(front+1) % size;
+	front = rear; (对空)
+
+
+1：实现约瑟夫环问题                 （和单向循环列表的效率是一样的）
+
+循环队列需要申请n+1空间,取余是长度，刚好就循环
+
+#include<stdio.h>
+#include<stdlib.h>
+void JosephusRing(int * Q, int n, int s)
+{
+	int front = 0, rear = n, i;
+	while (front - rear)
+	{
+		for (i = 0; i < s - 1; i++)			//0 空出来,1才算第一个小孩
+		{
+			front = (front + 1) % (n+1);                 
+			rear  = (rear + 1)  % (n+1);              //入队操作
+			Q[rear] = Q[front];
+		}
+		front = (front+1) % (n+1);                       //出队操作
+		printf("%5d", Q[front]);
+	}
+}
+
+int main(void)
+{
+	int * Q;
+	int n, s;
+	printf("Please input  n and s:");
+	scanf("%d%d",&n,&s);                               //n 为几个数据，s为出的小孩
+	Q = (int *)malloc((n+1) * sizeof(int));            //0 空出来,1才算第一个小孩，第二次循环0存储数据
+	for(int i = 1; i < n+1; i++) 
+		Q[i] = i;
+	JosephusRing(Q, n, s);
+}
+
+
+
+2：
+

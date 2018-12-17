@@ -1,11 +1,9 @@
+﻿
+栈是一种存储的思想，给线性表加上限制条件(栈顶出，FILO)，就是栈
 
-栈是一存储的思想
-
-
-   栈的应用
+栈的应用，利用其先进后出性质
 
 1：把十进制的数转化为二进制输出    （什么问题需倒序的时候用栈）
-
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -49,27 +47,26 @@ int main(void)
 
 
 
-2： 用栈来判断括号是否匹配
-
+2： 用栈来判断括号是否匹配 (用到了栈的思想，没有用到栈)
 
 #include<stdio.h>
 #include<stdlib.h>
-int ParenthesisMatching(char s[])
+int matching(char s[])
 {
-	int i, top, tag;
-	i = 0, top = -1;
+	int i=0, top = -1, tag=0;
 	while (s[i])
 	{
 		if (s[i] == '(')
+		{
 			top++;
-		else
-			if (s[i] == ')')
-			{
-				if (top == -1)
-					break;
-				else
-					top--;
-			}
+		}
+		else if (s[i] == ')')
+		{
+			if (top == -1)
+				break;
+			else
+				top--;
+		}
 		i++;
 	}
 	tag = (!s[i] && (top == -1));
@@ -79,11 +76,11 @@ int ParenthesisMatching(char s[])
 
 int main(void)
 {
-	char s[100];                        //没有用栈，只是用到了栈的思想
 	int tag;
+	char s[100];	
 	printf("Please input Parenrthesis expression:");
 	gets(s);
-	tag = ParenthesisMatching(s);
+	tag = matching(s);
 	if (tag)
 		printf("yes!");
 	else
@@ -94,7 +91,50 @@ int main(void)
 
 
    
+3：判断一个字符串是不是回文数
 
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int palindromeJudge(char a[],int n)
+{
+	int top = -1,re = 0; 
+ 	char * s;
+	s = (char *)malloc((n+1) * sizeof(char));
+	for(int i=0;i<n;i++)
+	{
+		s[++top] = a[i];	
+	}
+	for(int j=0;j<n;j++)
+	{
+		if(a[j]==s[top--])
+			re = 1;
+		else
+		{
+			re = 0;		
+			return re;
+		}	
+	}	
+}
+
+
+int main()
+{
+	int tag;
+	char a[100];
+	printf("Please input number what you need to judge：");
+	gets(a);
+	int n = strlen(a);
+	tag=palindromeJudge(a,n);
+	if(tag)
+		printf("The number is palindrome!\n");
+	else
+		printf("The number is not palindrome!\n");
+	
+}	
+
+
+4：求前缀，后缀表达式的值
 
 
 

@@ -553,7 +553,7 @@ int main(void)
 
 2>：约瑟夫环s找出,并按顺序输出
 
-ElemSN * TosephusRing(ElemSN * t, int s)                //（在单向循环链表传尾指针比头指针更加高效）
+ElemSN * JosephusRing(ElemSN * t, int s)                //（在单向循环链表传尾指针比头指针更加高效）
 {
 	ElemSN * h1 = NULL, *t1=NULL,*p;
 	while (t - t->next)                             //最后一个结点跳出循环
