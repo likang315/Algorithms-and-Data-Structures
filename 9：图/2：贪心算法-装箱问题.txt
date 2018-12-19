@@ -1,3 +1,6 @@
+﻿
+贪心算法：选择局部最优,但不一定是最优解，寻找局部最优的迭代过程
+
 #include<stdio.h>
 #include<stdlib.h>
 #define V 10
