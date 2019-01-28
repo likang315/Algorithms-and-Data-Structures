@@ -1,0 +1,68 @@
+
+1：旋转数组
+	给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数。
+
+class Solution {
+    public void rotate(int[] nums, int k) {
+        
+       int  n=nums.length;
+        k= k % n;
+        for(int i=0;i<k;i++)//j循环次数k
+        {
+            int temp=nums[n-1];
+            for(int j=n-1;j>0;j--)
+            {
+                nums[j]=nums[j-1];
+            }
+            nums[0]=temp;
+        }
+    }
+}
+
+2：从排序数组中删除重复项
+	在原地修改输入数组并在使用 O(1) 额外空间
+
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        if(nums.length == 0)
+            return 0;
+        int i=0;
+        for(int j=1;j<nums.length;j++)
+        {
+            if(nums[i]!=nums[j])
+            {
+                i++;
+                nums[i]=nums[j];
+            }
+        }
+        return i+1;
+    }
+}
+
+3：给定一个整数数组，判断是否存在重复元素
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        if(nums.length>=2)
+        {
+            for(int i=0;i<nums.length;i++)
+            {
+                for(int j=i+1;j<nums.length;j++)
+                {
+                    if(nums[i]==nums[j])
+                      return true;
+                }
+            }
+            
+        }
+        return false;
+    }
+}
+
+
+
+
+
+
+
+
+

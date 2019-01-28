@@ -94,7 +94,7 @@ int main(void)
 
 	printf("请输入删除的key");                                           //删除的主调部分
 	scanf("%d", &key);
-`	m=delete1(p, key);
+	m=delete1(p, key);
 	for (i = 1; i < m; i++)
 	printf("%d", p->s[i]);
 
