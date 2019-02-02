@@ -9,12 +9,11 @@
 递归：从上到下
 
 void Merge(int a[], int left, int mid, int right)   // 合并两个已排好序的数组a[left...mid]和a[mid+1...right]
-{
+{    
     int i,j,k;
-    int n1 = mid - left + 1;      
-    int n2 = right - mid;
-    int L[n1],R[n2];                
-
+    int n1= mid-left+1;
+    int n2= right - mid;
+    int L[n1],R[n2];                     
     for( i = 0 ; i<n1 ; i++)
 	L[i] = a[left+i];
     for( j = 0 ; j<n2 ; j++)
@@ -34,18 +33,17 @@ void Merge(int a[], int left, int mid, int right)   // 合并两个已排好序�
 	   a[k++] = L[i++];
     while (j < n2)
 	   a[k++] = R[j++];
-	
 }
 
 void MergeSort(int a[], int left, int right)   
 {
-    if (left < right)    // 当待排序的序列长度为1时，递归开始回溯，进行merge操作
+    if (left < right)    //当待排序的序列长度为1时，递归开始回溯，进行merge操作
     {
 	int mid = (left + right) / 2;
-	MergeSortRecursion(a, left, mid);
-	MergeSortRecursion(a, mid + 1, right);
+	MergeSort(a, left, mid);
+	MergeSort(a, mid + 1, right);
 	Merge(a, left, mid, right);
-    } 
+    }
 }
 
 
