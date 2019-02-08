@@ -3,53 +3,43 @@
 	ASL：O(logn)
 	
 
-int binarySearch(int a[],int low,int high,int key)       //递归调用
+int binarySearch(int a[],int left,int right,int key)       //递归调用
 {
 	int mid;
-	if (low > high)
+	if (left > right)
 		return -1;                              //-1，没有找到
 	else
 	{
-		mid = (low + high) / 2;
+		mid = (left + right) / 2;
 		if (a[mid] == key)
 			return mid;
 		else if (a[mid] > key)
-			return Halefsearch(a, low ,mid - 1, key);
+			return binarysearch(a, left ,mid - 1, key);
 		     else
-			return Halfsearch(a, mid + 1, high, key);
-
+			return binarysearch(a, mid + 1, right, key);
 	}
 }
 
 
 
-int binarySearch(int a[], int low, int high, int key)		 //非递归查找
+int binarySearch(int a[], int left, int right, int key)		 //非递归查找
 {                                                         
 	int mid;
-	while(low <= high)
+	while(left <= right)
 	{
-		mid = (low + high) / 2;
+		mid = (left + right) / 2;
 		if (a[mid] == key)
 			return mid;
-		if (a[mid] > key)
-			high = mid - 1;
-		else
-			low = mid + 1;
+		else if (a[mid] > key)
+			right = mid - 1;
+		     else
+			left = mid + 1;
 	}
 	return -1;
 }
 
 
-
-
-
-
-
-
-
-
-
-
+注意：所有二分递归终止条件：(left > right)，继续条件：（left <= right），二分递归永远是先选择右边的为mid
 
 
 
