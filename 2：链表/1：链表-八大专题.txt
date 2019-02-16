@@ -147,7 +147,7 @@ int main(void)
 
 
 
-链表的倒叙输出 
+链表的倒叙输出 (3种)
 
 1>：递归   
 
@@ -155,7 +155,7 @@ void printLink(ElemSN * h)
 {
 	if (h) {
 		printlink(h->next);
-		printf("%5d", h - < data);
+		printf("%5d", h -> data);
 	       }
 	     
 }
@@ -206,9 +206,7 @@ ElemSN * findKeyNode(ElemSN * h, int key)
 	ElemSN * p;
 	for (p = h; p && p->data - key; p = p->next);    //先看链表是否跑完，再判断是否要找节点
 	if(p)
-	{
 		return p;
-	}
 	return NULL;
 }
 
@@ -258,7 +256,7 @@ void delSameNode(ElemSN * h)
 {
 	ElemSN * p, *q, *pkey;
 	pkey = h;
-	while (pkey)            		//外层循环控制所有pkey
+	while (pkey->next)            		//外层循环控制所有pkey
 	{
 		for(q=pkey,p=pkey->next; p ;q=p,p=p->next)		 //内层循环控制有无重复值
 		{  
