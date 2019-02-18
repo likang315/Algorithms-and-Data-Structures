@@ -2,11 +2,9 @@
 队列，循环队列：给线性表加上限制条件(FIFO)
 
 入队时，队满不能入队
-	rear =(rear+1) % size; 
 	(rear+1)%size == front;（队满）
 出队时，队空不能入队 
-	front=(front+1) % size;
-	front == rear; (对空)
+	(front+1）%size == rear; (对空)
 
 
 1：实现约瑟夫环问题                 （和单向循环列表的效率是一样的）
