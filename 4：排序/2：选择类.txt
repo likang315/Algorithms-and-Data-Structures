@@ -1,7 +1,7 @@
 ﻿
 选择类：
 
-1：简单选择排序法，时间复杂度O(n^2),最好时：O(n^2),最坏时：O(n^2)
+1：简单选择排序法，时间复杂度O(n^2),最好时：O(n^2),最坏时：O(n^2),不稳定
 
 	void selectSort(int a[], int n)
 	{
@@ -14,7 +14,7 @@
 				if (a[j]<a[min])
 				    min = j;
 			}
-			if (i - min)
+			if (i != min)
 			{
 				t = a[i];
 				a[i] = a[min];
@@ -53,13 +53,13 @@ void Heapify(int a[], int i, int size)    // 从A[i]向下,调整堆
     }
 }
 
-void BuildHeap(int a[], int n)            // 建最大堆，时间复杂度O(nlogn)
+void buildHeap(int a[], int n)            // 建最大堆，时间复杂度O(nlogn)
 {
     for (int i = n / 2 - 1; i >= 0; i--)  //从每一个非叶子结点开始向上进行堆调整,因为叶子结点总比双分支结点多1
         Heapify(a, i, n);
 }
 
-void HeapSort(int a[], int n)
+void heapSort(int a[], int n)
 {
     BuildHeap(a, n);    
     while (n> 1)    　　　　　　 // 堆（无序区）元素个数大于1，未完成排序
