@@ -1,6 +1,5 @@
-﻿
- 查找表：是由同类型的数据元素构成的集合
-    
+###  查找表：是由同类型的数据元素构成的集合
+
  操作:
 	1：查询某个“特定的”数据元素是否在查找表中
 	2：检索某个“特定的”数据元素的各种属性
@@ -18,26 +17,27 @@
 哈希表：根据设定的哈希函数 H(key) 和所选中的处理冲突的方法，将一组关键字映射到一个有限的、地址连续的地址集 (区间) 上，
 	并以关键字和地址集中的“映射”作为，记录在表中的存储位置，如此构造所得的查找表称之为“哈希表”
 
-查找性能分析：
-    最大查找长度 (Maximum Search Length,MSL):对关键字的最多比较次数
-    平均查找长度 (Average Search Length,ASL):对关键字的平均比较次数
- 
+### 查找性能分析：
+
+#####     最大查找长度 (Maximum Search Length,MSL):对关键字的最多比较次数
+
+#####     平均查找长度 (Average Search Length,ASL):对关键字的平均比较次数
 
 
 
-顺序查找，ASL：O(n):(n+1)/2,MSL：O(n):n
+### 顺序查找，ASL：O(n):(n+1)/2,MSL：O(n):n
 
-int search(int a[], int n, int key)
+```java
+int search(int[] a, int n, int key)
 {                                            
 	int i;
-	for (i = 0; i < n && a[i] - key; i++);
+	for (i = 0; i < n && a[i] != key; i++);
 	if (i == n)
 		return -1;
 	else
 		return i;
 }
-
-
+```
 
 
 
