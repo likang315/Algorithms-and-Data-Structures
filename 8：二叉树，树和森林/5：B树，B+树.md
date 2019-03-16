@@ -25,7 +25,7 @@
 
    ### 三阶B树
 
-![](G:\Algorithms and Data Structures\8：二叉树，树和森林\B树.png)
+![B树.png](https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/8%EF%BC%9A%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%8C%E6%A0%91%E5%92%8C%E6%A3%AE%E6%9E%97/B%E6%A0%91.png?raw=true)
 
 ### B树的插入和删除
 
@@ -45,7 +45,7 @@
 4. 通常在 b+树 上有两个头指针，一个指向根结点，一个指向关键字最小的叶子结点
 5. 同一个数字会在不同节点中重复出现，**根节点的最大元素就是b+树的最大元素**
 
-![](G:\Algorithms and Data Structures\8：二叉树，树和森林\B+.png)
+![B树.png](https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/8%EF%BC%9A%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%8C%E6%A0%91%E5%92%8C%E6%A3%AE%E6%9E%97/B%E6%A0%91.png?raw=true)
 
 
 

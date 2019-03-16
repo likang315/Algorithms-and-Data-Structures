@@ -16,7 +16,7 @@ Index(N) 代表N的索引号，Position(N)代表N的位置号
 ​	Index(N) = N/8 = N >> 3，代表那个字节
 ​	Position(N) = N%8 ,指在相应字节中的bit为
 
-
+![Bitmap.png](https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/10%EF%BC%9A%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/Bitmap.png?raw=true)
 
 ### 代码：
 
