@@ -12,8 +12,6 @@
 
 **树的带权路径长度（WPL）：**为树中所有叶子结点的**带权路径长度之和**
 
-![构键Halfman.png](https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/11%EF%BC%9A%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%EF%BC%8C%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/%E6%9E%84%E9%94%AEHalfman.png?raw=true)
-
 ```java
 //链式创建HalfmanTree树，一般未知创建几个结点（装箱问题）
 public class HalfNode {
@@ -82,7 +80,7 @@ public HalfNode  creatHalfTree(List<HalfNode> list)
 
 ### 2：HalfmanCode
 
-![HalfmanCode.png](https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/11%EF%BC%9A%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%EF%BC%8C%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/HalfmanCode.png?raw=true)
+![HalfmanCode.png](https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/8%EF%BC%9A%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%8C%E6%A0%91%E5%92%8C%E6%A3%AE%E6%9E%97/HalfmanCode.png?raw=true)
 
 ```java
 public class HalfNode{
