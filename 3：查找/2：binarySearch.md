@@ -24,7 +24,6 @@ int binarySearch(int[] a,int left,int right,int key)       //递归调用
 }
 
 
-
 int binarySearch(int[] a, int left, int right, int key)		 //非递归查找
 {                                                         
 	int mid;
