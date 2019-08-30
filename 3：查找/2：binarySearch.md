@@ -1,16 +1,15 @@
-### ¶ş·Ö²éÕÒ,ÒªÇóÏßĞÔ±í±ØĞëÊÇÓĞĞòµÄ
+### äºŒåˆ†æŸ¥æ‰¾,è¦æ±‚çº¿æ€§è¡¨å¿…é¡»æ˜¯æœ‰åºçš„
 
-### ASL£ºO(logn)
+### ASLï¼šO(logn)
 
-×¢Òâ£ºËùÓĞ¶ş·Öµİ¹é**ÖÕÖ¹Ìõ¼ş£º(left > right)£¬¼ÌĞøÌõ¼ş£º£¨left <= right£©£¬¶ş·Öµİ¹éÓÀÔ¶ÊÇ ÏÈÑ¡ÔñÓÒ±ßµÄÎªmid**
+æ³¨æ„ï¼šæ‰€æœ‰äºŒåˆ†é€’å½’**ç»ˆæ­¢æ¡ä»¶ï¼š(left > right)ï¼Œç»§ç»­æ¡ä»¶ï¼šï¼ˆleft <= rightï¼‰ï¼ŒäºŒåˆ†é€’å½’æ°¸è¿œæ˜¯ å…ˆé€‰æ‹©å³è¾¹çš„ä¸ºmid**
 
-
-```java
-int binarySearch(int[] a,int left,int right,int key)       //µİ¹éµ÷ÓÃ
+```
+int binarySearch(int[] a,int left,int right,int key)       //é€’å½’è°ƒç”¨
 {
 	int mid;
 	if (left > right)
-		return -1;                              //-1£¬Ã»ÓĞÕÒµ½
+		return -1;                              //-1ï¼Œæ²¡æœ‰æ‰¾åˆ°
 	else
 	{
 		mid = (left + right) / 2;
@@ -24,7 +23,7 @@ int binarySearch(int[] a,int left,int right,int key)       //µİ¹éµ÷ÓÃ
 }
 
 
-int binarySearch(int[] a, int left, int right, int key)		 //·Çµİ¹é²éÕÒ
+int binarySearch(int[] a, int left, int right, int key)		 //éé€’å½’æŸ¥æ‰¾
 {                                                         
 	int mid;
 	while(left <= right)
@@ -40,8 +39,3 @@ int binarySearch(int[] a, int left, int right, int key)		 //·Çµİ¹é²éÕÒ
 	return -1;
 }
 ```
-
-
-
-
-
