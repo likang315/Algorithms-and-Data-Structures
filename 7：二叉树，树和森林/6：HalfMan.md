@@ -1,62 +1,52 @@
-### 1：哈夫曼树（最优树二叉树)：树的带权路径最小的二叉树
+### 哈夫曼树、最优树二叉树：
 
-**路径长度：**路径上的分支数目
+------
 
-​	从树中一个结点到另一个结点之间构成两个结点的路径
+​	树的带权路径最小的二叉树
 
-**树的路径长度**：从根到每一个结点的路径长度之和
-
-**带权路径长度**
-
-结点的带权路径长度为从该结点到树根之间的路径长度与结点上权的乘积
-
-**树的带权路径长度（WPL）：**为树中所有叶子结点的**带权路径长度之和**
+- 路径长度：路径上的分支数目
+  - 从树中一个结点到另一个结点之间构成两个结点的路径
+- 树的路径长度：从根到每一个结点的路径长度之和
+- 带权路径长度：从该结点到树根之间的路径长度与结点上权的乘积
+- 树的带权路径长度（WPL）：为树中所有叶子结点的带权路径长度之和
 
 ```java
-//链式创建HalfmanTree树，一般未知创建几个结点（装箱问题）
+// 链式创建HalfmanTree树，一般未知创建几个结点（装箱问题）
 public class HalfNode {
-	char word;
-	int val;//权值
-	HalfNode left=null;
-	HalfNode right=null;
-    
+    char word;
+    int val;//权值
+    HalfNode left=null;
+    HalfNode right=null;
+
     HalfNode(char word,int val) {
         this.word=word;
         this.val = val;
     }
 }
-
-//创建森林,存放叶子结点
-public List creatForest(int n) 
-{
-	List<HalfNode> list=new LinkList<HalfNode>();
-	for (int i = 0; i < n; i++) 
-	{
-		char ch;
-		int val;
-		HalfNode node=new HalfNode();
-		Scanner sc1=new Scanner(System.in);
-		while(sc.hasNext())
-         {
+// 创建森林,存放叶子结点
+public List creatForest(int n) {
+    List<HalfNode> list=new LinkList<HalfNode>();
+    for (int i = 0; i < n; i++) {
+        char ch;
+        int val;
+        HalfNode node=new HalfNode();
+        Scanner sc1=new Scanner(System.in);
+        while(sc.hasNext())	{
             node.val=sc1.nextInt();
-         }
-         sc1.close();
-         Scanner sc2=new Scanner(System.in);
-		while(sc.hasNext())
-         {
+        }
+        sc1.close();
+        Scanner sc2=new Scanner(System.in);
+        while(sc.hasNext()) {
             node.word=sc2.next().charAt(0);
-         }
-         sc2.close();
-	}
-	return list;
+        }
+        sc2.close();
+    }
+    return list;
 }
-
-//创建HalfMan树
-public HalfNode  creatHalfTree(List<HalfNode> list) 
-{
+// 创建HalfMan树
+public HalfNode  creatHalfTree(List<HalfNode> list) {
     // 只要nodes数组中还有2个以上的节点
-    while (list.size() > 1)
-    {
+    while (list.size() > 1) {
         //根据val排序
         Collections.sort(list);
         //获取权值最小的两个节点
