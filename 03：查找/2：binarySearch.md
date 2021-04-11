@@ -4,11 +4,11 @@
 
 - 要求线性表必须是有序的
 - ASL：O(logn)
-- 二分递归**终止条件：(left > right)，继续条件：（left <= right），二分递归永远是 先选择右边的为mid**
-  - 原理：就是看最后一个数是否要比较
+- 二分递归**终止条件：(left > right)，继续条件：（left <= right）**
+  - 原理：查看mid是不是检索的key
 
 ```java
-// 递归
+// 递归(半递归，没有回溯)
 public int binarySearch(int[] a, int left, int right, int key) {
 	int mid;
 	if (left > right)
@@ -22,7 +22,7 @@ public int binarySearch(int[] a, int left, int right, int key) {
 		else
 				return binarysearch(a, mid + 1, right, key);
 	}
-}	
+}
 // 非递归
 public int binarySearch(int[] a, int left, int right, int key) {                                                         
 	int mid;
