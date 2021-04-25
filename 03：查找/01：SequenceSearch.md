@@ -1,17 +1,19 @@
-###  查找表：
+###  顺序查找（SequenceSearch）
 
 ------
 
-由同类型的数据元素构成的集合
+[TOC]
 
-##### 1：操作分类:
+##### 01：操作分类：
+
+- 由同类型的数据元素构成的集合;
 
 1. 查询某个“特定的”数据元素是否在查找表中
 2. 检索某个“特定的”数据元素的各种属性
 3. 在查找表中插入一个数据元素
 4. 从查找表中删去某个数据元素
 
-##### 2：查找表分类：
+##### 02：查找表分类：
 
 按照记录在表中的位置和它的关键字之间的关系分为：
 
@@ -21,25 +23,26 @@
 - Hash表：记录在表中的位置和它的关键字之间存在一个确定的关系
   - 根据设定的哈希函数 H(key) 和所选中的处理冲突的方法，将一组关键字映射到一个有限的、地址连续的地址集 (区间) 上，并以关键字和地址集中的“映射”作为记录在表中的存储位置
 
-##### 3：查找性能分析：
+##### 03：查找性能分析：
 
-1. 最大查找长度 (Maximum Search Length,MSL)：对关键字的最多比较次数
-2. 平均查找长度 (Average Search Length,ASL)：对关键字的平均比较次数
+1. 最大查找长度 (Maximum Search Length,MSL)：对关键字的最多比较次数；
+2. 平均查找长度 (Average Search Length,ASL)：对关键字的平均比较次数；
 
-##### 4：顺序查找：sequenceSearch
+##### 04：顺序查找：sequenceSearch
 
 - MSL：O(n) = n
 - ASL：O(n)  = (n+1) / 2
 
 ```java
 // 返回找到的索引
-public int sequenceSearch(int[] a, int key) {                                            
-	int i;
-	for (i = 0; i < a.length && a[i] != key; i++);
-	if (i == a.length)
-		return -1;
-	else
-		return i;
+public int sequenceSearch(int[] a, int key) {   
+  	int i;
+    for (i = 0; i < a.length && a[i] != key; i++);
+    if (i == a.length) {
+      return -1;
+    } else {
+      return i;
+    }
 }
 ```
 

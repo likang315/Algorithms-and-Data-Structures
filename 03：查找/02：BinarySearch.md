@@ -1,6 +1,10 @@
-### 二分查找
+### 二分查找（BinarySearch）
 
 ------
+
+[TOC]
+
+##### 01：二分查找
 
 - 要求线性表必须是有序的
 - ASL：O(logn)
@@ -11,9 +15,9 @@
 // 递归(半递归，没有回溯)
 public int binarySearch(int[] a, int left, int right, int key) {
 	int mid;
-	if (left > right)
-		return -1;
-	else {
+	if (left > right) {
+    return -1;
+  } else {
 		mid = (left + right) / 2;
 		if (a[mid] == key)
 			return mid;
