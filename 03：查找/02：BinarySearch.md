@@ -16,15 +16,15 @@
 public int binarySearch(int[] a, int left, int right, int key) {
 	int mid;
 	if (left > right) {
-    return -1;
-  } else {
+    	return -1;
+  	} else {
 		mid = (left + right) / 2;
 		if (a[mid] == key)
 			return mid;
 		else if (a[mid] > key)
-				return binarysearch(a, left , mid - 1, key);
+			return binarysearch(a, left , mid - 1, key);
 		else
-				return binarysearch(a, mid + 1, right, key);
+			return binarysearch(a, mid + 1, right, key);
 	}
 }
 // 非递归
@@ -35,8 +35,8 @@ public int binarySearch(int[] a, int left, int right, int key) {
 		if (a[mid] == key)
 			return mid;
 		else if (a[mid] > key)
-      right = mid - 1;
-    else
+      		right = mid - 1;
+    	else
 			left = mid + 1;
 	}
 	return -1;
