@@ -20,10 +20,10 @@
 ```java
 // 将新数据添加到容器中
 public void add(int num) {
-   	 int index = num >> 3;
-     int position = num % 8;
-   	 // 将1左移 position 位，使目标位置1和原来的位图做或操作
-   	 byte[index] |= 1 << position;
+    int index = num >> 3;
+    int position = num % 8;
+    // 将1左移 position 位，使目标位置1和原来的位图做或操作
+    byte[index] |= 1 << position;
 }
 ```
 

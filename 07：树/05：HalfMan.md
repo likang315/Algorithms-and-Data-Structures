@@ -74,14 +74,14 @@ public HalfNode  creatHalfTree(List<HalfNode> list) {
 
 ```java
 public class HalfNode{
-	char word;
-	int val;//权值
-	HalfNode left=null;
-	HalfNode right=null;
-	HalfNode parent=null;
+    char word;
+    int val;//权值
+    HalfNode left=null;
+    HalfNode right=null;
+    HalfNode parent=null;
     //存储编码
     int[] code=new int[100]; 
-    
+
     HalfNode(char word,int val) {
         this.word=word;
         this.val = val;
@@ -90,23 +90,23 @@ public class HalfNode{
 //创建HalfmanCode,倒着存储，需倒着输出
 void HalfmanCode(HalfNode list)
 {
-	int p, q, i;
-	int[] code;
-	for (i = 0; i < list.size(); i++)
-	{
-		code=list.get(i).code;
-		code[0]=0;
-		p = i;
-		while (list.get(p).parent!= null)
-		{
-			q = list.get(p).parent;
-			if (q.left == p)
-				code[++code[0]] = 0;
-			else
-				code[++code[0]] = 1;
-			p = q;
-		}
-	}
+    int p, q, i;
+    int[] code;
+    for (i = 0; i < list.size(); i++)
+    {
+        code=list.get(i).code;
+        code[0]=0;
+        p = i;
+        while (list.get(p).parent!= null)
+        {
+            q = list.get(p).parent;
+            if (q.left == p)
+                code[++code[0]] = 0;
+            else
+                code[++code[0]] = 1;
+            p = q;
+        }
+    }
 }
 ```
 

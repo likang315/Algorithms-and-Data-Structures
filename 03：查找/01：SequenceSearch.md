@@ -36,16 +36,15 @@
 ```java
 // 返回找到的索引
 public int sequenceSearch(int[] a, int key) {   
-  	int i;
+    int i;
     for (i = 0; i < a.length && a[i] != key; i++);
     if (i == a.length) {
-      return -1;
+        return -1;
     } else {
-      return i;
+        return i;
     }
 }
 ```
-
 
 
 

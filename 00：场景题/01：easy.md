@@ -1,0 +1,26 @@
+### Easy
+
+------
+
+[TOC]
+
+##### 01：计算根号2的值，保留小数点后10位
+
+```java
+public static double squareTwo() {
+    final double frequency = 0.00000000001;
+    double left = 1.4;
+    double right = 1.5;
+    while (right - left > frequency) {
+        double mid = (right + left) / 2.0;
+        if (mid * mid > 2)
+            right = mid;
+        else
+            left = mid;
+    }
+
+    return Double.parseDouble(Double.toString(left).substring(0,12));
+}
+```
+
+##### 02：

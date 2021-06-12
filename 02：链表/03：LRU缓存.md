@@ -75,7 +75,6 @@ public class LRUCache {
 
         head = new DLinkedNode();
         // head.prev = null;
-
         tail = new DLinkedNode();
         // tail.next = null;
         // 让两个互指
