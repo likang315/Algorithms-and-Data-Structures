@@ -11,7 +11,7 @@
 
 ##### 02：结构
 
-![SkpiList](/Users/likang/Code/Git/Algorithms-and-Data-Structures/02：链表/photos/SkpiList.png)
+![SkpiList](https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/02：链表/photos/SkpiList.png?raw=true)
 
 - 从索引层开始检索，比它大往后找，比它小往下找；
 - level 的层数是随机生成的，不过有大小限制；

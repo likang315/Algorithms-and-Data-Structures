@@ -26,7 +26,7 @@
 
 ###### 三阶B树
 
-![B-tree](/Users/likang/Code/Git/Algorithms-and-Data-Structures/07：树/photos/B-tree.png)
+![B-tree](https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/05：树/photos/B-tree.png)
 
 ###### B树的插入和删除
 
@@ -45,7 +45,7 @@
 3. 所有的叶子结点中包含了全部关键字的信息，及指向含这些关键字记录的指针，且**叶子结点本身依关键字的大小自小而大顺序链接**
 4. 所有的非叶子结点可以看成是索引部分，结点中仅含其子树中的最大（或最小）关键字；
 5. 通常在 b+树 上**有两个指针**，一个指向根结点，一个指向关键字最小的叶子结点；
-6. ![B+tree](/Users/likang/Code/Git/Algorithms-and-Data-Structures/07：树/photos/B+tree.jpeg)
+6. ![B+tree](https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/05：树/photos/B+tree.jpeg)
 
 ##### 03：B树、B+树的区别
 
@@ -59,5 +59,5 @@
 ##### 04：B* 树：
 
 - 是B+树的变体，在B+树的非根和非叶子结点再**增加指向兄弟的指针**；
-- ![B*tree](/Users/likang/Code/Git/Algorithms-and-Data-Structures/07：树/photos/B*tree.png)
+- ![B*tree](https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/05：树/photos/B*tree.png)
 

@@ -70,7 +70,7 @@ public HalfNode  creatHalfTree(List<HalfNode> list) {
 
 ### 2：HalfmanCode
 
-![HalfmanCode.png](https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/8%EF%BC%9A%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%8C%E6%A0%91%E5%92%8C%E6%A3%AE%E6%9E%97/HalfmanCode.png?raw=true)
+![HalfmanCode.png](https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/05%EF%BC%9A%E6%A0%91/photos/HalfmanCode.png?raw=true)
 
 ```java
 public class HalfNode{
