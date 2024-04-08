@@ -26,7 +26,7 @@
 
 ###### 三阶B树
 
-![B-tree](https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/05：树/photos/B-tree.png)
+<img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/05：树/photos/B-tree.png?raw=true" alt="B-tree" style="zoom:67%;" />
 
 ###### B树的插入和删除
 
@@ -40,12 +40,12 @@
 
 ###### 特性
 
-1. M 阶 B+ 树，叶子结点**最多包含M-1 个元素**，若是超过，则将这个叶子结点**分裂成左右两个叶子结点**，左叶子结点包含前m/2个记录，右结点包含剩下的记录，**将第m/2+1个记录的key进位到父结点中**，进位到父结点的key左孩子指针向左结点，右孩子指针向右结点， 将当前结点的指针指向父结点。
+1. M 阶 B+ 树，叶子结点**最多包含 M-1 个元素**，若是超过，则将这个叶子结点**分裂成左右两个叶子结点**，左叶子结点包含前m/2个记录，右结点包含剩下的记录，**将第m/2+1个记录的key进位到父结点中**，进位到父结点的key左孩子指针向左结点，右孩子指针向右结点， 将当前结点的指针指向父结点。
 2. **非叶子结点中有n个关键字 （b树是n-1个）就有n个子节点**，这些**关键字不保存数据，只保存索引**，所有数据都保存在叶子节点（b树是每个关键字都保存数据）
-3. 所有的叶子结点中包含了全部关键字的信息，及指向含这些关键字记录的指针，且**叶子结点本身依关键字的大小自小而大顺序链接**
+3. 所有的叶子结点中包含了全部关键字的信息，及指向含这些关键字记录的指针，且**叶子结点本身依关键字的大小自小而大顺序链接**；
 4. 所有的非叶子结点可以看成是索引部分，结点中仅含其子树中的最大（或最小）关键字；
 5. 通常在 b+树 上**有两个指针**，一个指向根结点，一个指向关键字最小的叶子结点；
-6. ![B+tree](https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/05：树/photos/B+tree.jpeg)
+6. <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/05：树/photos/B+tree.jpeg?raw=true" alt="B+tree" style="zoom:67%;" />
 
 ##### 03：B树、B+树的区别
 
@@ -59,5 +59,5 @@
 ##### 04：B* 树：
 
 - 是B+树的变体，在B+树的非根和非叶子结点再**增加指向兄弟的指针**；
-- ![B*tree](https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/05：树/photos/B*tree.png)
+- <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/05：树/photos/B*tree.png?raw=true" alt="B*tree" style="zoom:70%;" />
 

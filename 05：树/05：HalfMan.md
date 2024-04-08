@@ -70,7 +70,7 @@ public HalfNode  creatHalfTree(List<HalfNode> list) {
 
 ### 2：HalfmanCode
 
-![HalfmanCode.png](https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/05%EF%BC%9A%E6%A0%91/photos/HalfmanCode.png?raw=true)
+<img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/05：树/photos/HalfmanCode.png?raw=true" alt="HalfmanCode.png" style="zoom:67%;" />
 
 ```java
 public class HalfNode{
