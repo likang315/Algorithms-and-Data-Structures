@@ -23,4 +23,25 @@ public static double squareTwo() {
 }
 ```
 
-##### 02：
+##### 02：1，2，3，4 组成无重复的三位数
+
+- 固定位数
+
+```java
+static void solution() {
+    int count = 0;
+    // i 百位，j 十位，k 个位
+    for (int i = 1; i <= 4; i++) {
+        for (int j = 1; j <= 4; j++) {
+            for (int k = 1; k <= 4; k++) {
+                if (i != j && i != k && j != k) {
+                    int number = i * 100 + j * 10 + k;
+                    System.out.println(number);
+                    count++;
+                }
+            }
+        }
+    }
+}
+```
+

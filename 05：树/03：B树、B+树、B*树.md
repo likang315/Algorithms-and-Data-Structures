@@ -47,16 +47,7 @@
 5. 通常在 b+树 上**有两个指针**，一个指向根结点，一个指向关键字最小的叶子结点；
 6. <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/05：树/photos/B+tree.jpeg?raw=true" alt="B+tree" style="zoom:67%;" />
 
-##### 03：B树、B+树的区别
-
-1. B+树的**更加矮胖，IO次数少**，磁盘读写代价更低；
-   - B树 每个节点中不仅存储索引信息，还存储了存其对应的数据，因此B树的高度更高；
-2. B+树的数据信息遍历更加方便，**支持范围查询**【双向链表】
-   - B+树只要遍历叶子节点就可以实现整棵树的遍历，而B树不支持这样的操作，而且在数据库中基于范围的查询是非常频繁的，所以数据库索引基本采用B+树；
-3. B+树的**查询效率稳定**
-   - 任何关键字的查找必须走从根结点到叶子结点的路。所有关键字查询的路径长度相同，导致每一个数据的查询效率相当；
-
-##### 04：B* 树：
+##### 03：B* 树：
 
 - 是B+树的变体，在B+树的非根和非叶子结点再**增加指向兄弟的指针**；
 - <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/05：树/photos/B*tree.png?raw=true" alt="B*tree" style="zoom:70%;" />
