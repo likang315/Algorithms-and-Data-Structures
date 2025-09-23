@@ -10,7 +10,7 @@
 
 - Agent = 大模型（LLM）+ 规划（Planning）+ 记忆（Memory）+ 工具使用（Tool Use）；
 
-  -  <img src="/Users/likang/work/kungFu/Algorithms-and-Data-Structures/23：LLM/photos/Agent.png" alt="Agent" style="zoom:35%;" />
+  -  <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/21%EF%BC%9ALLM/photos/Agent.png" alt="Agent" style="zoom:35%;" />
 
   - 规划（Planning） ：任务拆解、子任务生成及自我反思；
   - 记忆（Memory） ：长期记忆存储与上下文管理，用于处理复杂任务
@@ -36,7 +36,7 @@
 ##### 05：Function Calling (函数调用) 
 
 - 一种允许大型语言模型(LLM)根据用户输入**识别它需要的工具并决定何时调用该工具**的机制。
-- <img src="/Users/likang/work/kungFu/Algorithms-and-Data-Structures/23：LLM/photos/Function-Calling.jpg" alt="Function-Calling" style="zoom:80%;" />
+- <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/21%EF%BC%9ALLM/photos/Function-Calling.jpg" alt="Function-Calling" style="zoom:80%;" />
 
 ##### 06：MCP（Model Context Protocol，模型上下文协议）
 
@@ -54,7 +54,7 @@
 ###### MCP 流程
 
 - 首先需要在**主机上自动或手动配置 MCP 服务**，当用户输入问题时， MCP 客户端让 大语言模型选择 MCP 工具，大模型选择好 MCP 工具以后， MCP 客户端寻求用户同意（很多产品支持配置自动同意），MCP 客户端请求 MCP 服务器， MCP 服务调用工具并将工具的结果返回给 MCP 客户端， MCP 客户端将模型调用结果和用户的查询发送给大语言模型，大语言模型组织答案给用户。
-- <img src="/Users/likang/work/kungFu/Algorithms-and-Data-Structures/23：LLM/photos/MCP.jpg" alt="MCP" style="zoom:85%;" />
+- <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/21%EF%BC%9ALLM/photos/MCP.jpg" alt="MCP" style="zoom:85%;" />
 
 ##### 07：A2A （Agent2Agent）协议
 
@@ -77,7 +77,7 @@
 - 服务端Agent处理任务，必要的时候会输出中间结果，或者要求客户端补充信息；
 - 客户端可以等待任务完成；也可以根据任务ID异步获取任务结果，也可以设置通知回调，及时获得任务的进展与工作成果；
 
-- <img src="/Users/likang/work/kungFu/Algorithms-and-Data-Structures/23：LLM/photos/A2A.png" alt="A2A" style="zoom:50%;" />
+- <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/21%EF%BC%9ALLM/photos/A2A.png" alt="A2A" style="zoom:50%;" />
 
 ##### 08：AG-UI（Agent-User Interaction Protocol，智能体用户交互协议）
 
@@ -90,5 +90,5 @@
 - AI Agent 持续以流式方式将事件推送至 UI 端；
 - UI 端根据收到的每条事件，实时动态更新界面；
 - 同时，UI 端也可以反向发送事件或上下文信息，供 AI Agent 实时处理和响应；
-- <img src="/Users/likang/work/kungFu/Algorithms-and-Data-Structures/23：LLM/photos/AG-UI.png" alt="AG-UI" style="zoom:45%;" />
+- <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/21%EF%BC%9ALLM/photos/AG-UI.png" alt="AG-UI" style="zoom:45%;" />
 
