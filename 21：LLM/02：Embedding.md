@@ -14,7 +14,7 @@
 ##### 02：分词&词元 ID
 
 - 将文本分词后，利用词汇表将文本词元转换成词元 ID。
-- <img src="/Users/likang/work/kungFu/Algorithms-and-Data-Structures/21：LLM/photos/Token-Id.png" alt="Token-Id" style="zoom:20%;" />
+- <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/21%EF%BC%9ALLM/photos/Token-Id.png" alt="Token-Id" style="zoom:20%;" />
 
 ###### 分词器
 
@@ -26,7 +26,7 @@
 
 - 嵌入的本质是将**离散对象（如单词、图像甚至整个文档）映射到连续向量空间中的点**，其主要目的是将非数值的数据转换为神经网络可以处理的格式。
 - 维度(dimension)：可以从一维到数千维不等。更高的维度有助于**捕捉到更细微的关系**，但这通常以牺牲计算效率为代价。
-- <img src="/Users/likang/work/kungFu/Algorithms-and-Data-Structures/21：LLM/photos/Embedding.png" alt="Embedding" style="zoom:25%;" />
+- <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/21%EF%BC%9ALLM/photos/Embedding.png" alt="Embedding" style="zoom:25%;" />
 
 ###### 词元 ID Embendding
 
@@ -45,7 +45,7 @@
 
 - 输入文本首先被分割为独立的词元。然后，这些词元通过词汇表转换为词元ID。这些词元ID继而被转换为嵌入向量，并**添加与之大小相同的位置嵌入**，最终形成用于大语言模型核心层的输入嵌入。
 
-<img src="/Users/likang/work/kungFu/Algorithms-and-Data-Structures/21：LLM/photos/GPT-Embedding.png" alt="GPT-Embedding" style="zoom:30%;" />
+<img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/21%EF%BC%9ALLM/photos/GPT-Embedding.png" alt="GPT-Embedding" style="zoom:30%;" />
 
 
 
