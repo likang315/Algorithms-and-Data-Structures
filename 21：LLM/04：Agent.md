@@ -31,7 +31,7 @@
 ##### 04：RAG（Retrieval Augmented Generation ，检索增强生成）
 
 - 不需要训练和微调大模型，只需要**提供和用户提问相关的额外的信息到提示词中**，从而可以获得更高质量的回答。
-- <img src="/Users/likang/work/kungFu/Algorithms-and-Data-Structures/23：LLM/photos/RAG.png" alt="RAG" style="zoom:67%;" />
+- <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/21%EF%BC%9ALLM/photos/RAG.png" alt="RAG" style="zoom:67%;" />
 
 ##### 05：Function Calling (函数调用) 
 
