@@ -9,7 +9,7 @@
 - 大语言模型是一种用于**理解、生成和响应**类似人类语言文本的神经网络。
 - 采用 Transformer 的架构，这种架构**允许模型在进行预测时有选择地关注输入文本的不同部分**，从而使得它们特别擅长应对人类语言的细微差别和复杂性。
 - 通常被归类为生成式人工智能（generative artificial intelligence，简称generative AI或GenAI）
-- <img src="/Users/likang/work/kungFu/Algorithms-and-Data-Structures/23：LLM/photos/大语言模型.png" alt="大语言模型" style="zoom:25%;" />
+- <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/21%EF%BC%9ALLM/photos/大语言模型.png" alt="大语言模型" style="zoom:25%;" />
 
 ##### 02：大模型的应用场景
 
@@ -69,7 +69,7 @@
 
 - **推理和行动**，一种 AI 智能体的架构设计范式，AI 智能体使用链式推理和工具使用行动来综合运用。
 - 通过让大模型**解释其思考过程并通过工具核实事实**，减少幻觉和错误传播问题。
-- <img src="/Users/likang/work/kungFu/Algorithms-and-Data-Structures/23：LLM/photos/ReAct.png" alt="ReAct" style="zoom:50%;" />
+- <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/21%EF%BC%9ALLM/photos/ReAct.png" alt="ReAct" style="zoom:50%;" />
 
 
 
