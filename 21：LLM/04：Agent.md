@@ -4,21 +4,20 @@
 
 [TOC]
 
-##### 01：概述
+##### 01：什么是 Agent
 
-- Agent：让大模型**“代理/模拟”「人」的行为，使用某些“工具/功能”来完成某些“任务”**的能力。
+- Agent：让大模型**代理/模拟「人」的行为，使用某些「工具/功能」来完成某些任务**的能力。
 
 - Agent = 大模型（LLM）+ 规划（Planning）+ 记忆（Memory）+ 工具使用（Tool Use）；
 
   -  <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/21%EF%BC%9ALLM/photos/Agent.png" alt="Agent" style="zoom:35%;" />
 
-  - 规划（Planning） ：任务拆解、子任务生成及自我反思；
-  - 记忆（Memory） ：长期记忆存储与上下文管理，用于处理复杂任务
-  - 工具使用（Tool Usage） ：通过API或外部工具增强Agent的能力（如搜索、文件操作，代码执行等）；
+  -  规划（Planning） ：任务拆解、子任务生成及自我反思；
+  -  记忆（Memory） ：长期记忆存储与上下文管理，用于处理复杂任务
+  -  工具使用（Tool Usage） ：通过API或外部工具增强Agent的能力（如搜索、文件操作，代码执行等）；
 
 ##### 02：Multi-Agent（多 Agent）
 
-- 组装、协同、竞争。
 - 面向复杂任务场景，多智能体会**将复杂任务分解为子任务，让不同的智能体完成不同的子任务**，即专业“人”做专业“事”
 - Agent之间也可以进行**竞争**，多个子任务Agent给出了多版不同方案，由一个**决策Agent或者人来最终决定**要使用哪款子任务Agent给出的方案等等。
 
@@ -28,17 +27,12 @@
 - A2A协议：解决Agent间通信问题；
 - AG-UI协议：解决AI Agent与前端应用之间的交互标准化问题。
 
-##### 04：RAG（Retrieval Augmented Generation ，检索增强生成）
-
-- 不需要训练和微调大模型，只需要**提供和用户提问相关的额外的信息到提示词中**，从而可以获得更高质量的回答。
-- <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/21%EF%BC%9ALLM/photos/RAG.png" alt="RAG" style="zoom:67%;" />
-
-##### 05：Function Calling (函数调用) 
+##### 04：Function Calling (函数调用) 
 
 - 一种允许大型语言模型(LLM)根据用户输入**识别它需要的工具并决定何时调用该工具**的机制。
 - <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/21%EF%BC%9ALLM/photos/Function-Calling.jpg" alt="Function-Calling" style="zoom:80%;" />
 
-##### 06：MCP（Model Context Protocol，模型上下文协议）
+##### 05：MCP（Model Context Protocol，模型上下文协议）
 
 - 统一的标准协议，让 **AI 模型能够与不同的数据源和工具进行无缝交互**。它就像 USB-C 接口一样。
 
@@ -56,7 +50,7 @@
 - 首先需要在**主机上自动或手动配置 MCP 服务**，当用户输入问题时， MCP 客户端让 大语言模型选择 MCP 工具，大模型选择好 MCP 工具以后， MCP 客户端寻求用户同意（很多产品支持配置自动同意），MCP 客户端请求 MCP 服务器， MCP 服务调用工具并将工具的结果返回给 MCP 客户端， MCP 客户端将模型调用结果和用户的查询发送给大语言模型，大语言模型组织答案给用户。
 - <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/21%EF%BC%9ALLM/photos/MCP.jpg" alt="MCP" style="zoom:85%;" />
 
-##### 07：A2A （Agent2Agent）协议
+##### 06：A2A （Agent2Agent）协议
 
 - 一种开放协议，旨在**不同架构的 AI Agent 也能无缝地互相通信、交换信息，安全高效地协同完成任务**。
 
@@ -79,7 +73,7 @@
 
 - <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/21%EF%BC%9ALLM/photos/A2A.png" alt="A2A" style="zoom:50%;" />
 
-##### 08：AG-UI（Agent-User Interaction Protocol，智能体用户交互协议）
+##### 07：AG-UI（Agent-User Interaction Protocol，智能体用户交互协议）
 
 - 解决AI Agent与前端应用之间的交互标准化问题，提供一个轻量级、事件驱动的开放协议，实现AI Agent与用户界面的实时双向通信。
 
@@ -92,3 +86,37 @@
 - 同时，UI 端也可以反向发送事件或上下文信息，供 AI Agent 实时处理和响应；
 - <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/21%EF%BC%9ALLM/photos/AG-UI.png" alt="AG-UI" style="zoom:45%;" />
 
+##### 08：RAG（Retrieval Augmented Generation ，检索增强生成）
+
+- 不需要训练和微调大模型，只需要**提供和用户提问相关的额外的信息到提示词中**，从而可以获得更高质量的回答。
+
+###### 工作模式
+
+- <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/21%EF%BC%9ALLM/photos/RAG.png" alt="RAG" style="zoom:67%;" />
+
+###### 存在的问题
+
+- 检索一次，生成一次。这意味着如果检索到的上下文不够，LLM**就无法**动态搜索更多信息。
+- 如果查询需要多个检索步骤，无法通过复杂的查询进行推理。
+
+##### 09：Agentic AI
+
+- 定义：能够理解高层次目标、拆解目标、自主制定计划（规划）、执行多步骤任务、并能在过程中动态调整决策的人工智能系统。
+
+###### 特征
+
+- **自主性（Autonomy）：**
+  - 这是最核心的特征。系统能够在**最少的人工干预下自行运作，做出决策**。
+- **规划与执行（Planning & Execution）：*
+  - 能够将复杂目标分解为一系列子任务（规划），然后按顺序或并行地执行这些任务（执行）。
+- **工具使用（Tool Use）：**
+  - 能够调用外部工具和API来扩展其能力。
+- **记忆与状态（Memory & State）：** 
+  - 能够记住之前的交互、执行过程和结果，并在后续决策中使用这些信息。这使得**智能体能够处理长期且复杂的任务**。
+- **反思与迭代（Reflection & Iteration）：**
+  - 能够评估自己行动的结果。如果结果不理想，它可以**自我批判**、**分析错误原因**、**调整计划**并重新尝试。
+
+###### 工作模式
+
+- <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/21%EF%BC%9ALLM/photos/Agentic-AI.png" alt="Agentic-AI" style="zoom:50%;" />
+- 第六步只有一个检索 Agent，如果任务复杂，可以拆分为多个 Agent，进行协作。
