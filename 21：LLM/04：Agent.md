@@ -6,7 +6,7 @@
 
 ##### 01：什么是 Agent
 
-- Agent：让大模型**代理/模拟「人」的行为，使用某些「工具/功能」来完成某些任务**的能力。
+- Agent：让大模型**代理/模拟「人」的行为，使用某些「工具/功能」来完成某些任务**的能力。（与 WorkFlow相比，将决策交给AI）
 
 - Agent = 大模型（LLM）+ 规划（Planning）+ 记忆（Memory）+ 工具使用（Tool Use）；
 
@@ -29,16 +29,46 @@
 
 ##### 04：Function Calling (函数调用) 
 
-- 一种允许大型语言模型(LLM)根据用户输入**识别它需要的工具并决定何时调用该工具**的机制。
+- 允许大型语言模型(LLM)根据用户输入**识别它需要的工具并决定何时调用该工具**的机制。实现了非结构化 -> 结构化的转变。
+
 - <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/21%EF%BC%9ALLM/photos/Function-Calling.jpg" alt="Function-Calling" style="zoom:80%;" />
+
+- ```json
+  // LLM返回结构化的工具调用，系统解析执行
+  {
+    "id": "chatcmpl-abc123",
+    "object": "chat.completion",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_abc123",
+              "type": "function",
+              "function": {
+                "name": "get_weather",
+                "arguments": "{\"city\": \"北京\", \"date\": \"today\"}"
+              }
+            }
+          ]
+        },
+        "finish_reason": "tool_calls"
+      }
+    ]
+  }
+  ```
+
 
 ##### 05：MCP（Model Context Protocol，模型上下文协议）
 
-- 统一的标准协议，让 **AI 模型能够与不同的数据源和工具进行无缝交互**。它就像 USB-C 接口一样。
+- 标准化交互协议和 Server架构，让 **AI 模型能够与不同的数据源和工具进行无缝交互**。
 
 ###### MCP 架构
 
-- **主机**：代表任何提供 AI 交互环境的应用程序，它能访问工具和数据，并运行 MCP 客户端。
+- **主机**：代表任何提供 AI 交互环境的应用程序，它能访问工具和数据，并运行 MCP 客户端。在 Function-Calling的基础上，增加一层JSON-RPC 协议转化。
 - **MCP 客户端**：在主机内运行，使其能与 MCP 服务器通信。
 - **MCP 服务器**：**暴露特定功能并提供数据访问**。例如：
   - 工具：使 LLM 能通过服务器执行操作；
@@ -99,7 +129,38 @@
 - 检索一次，生成一次。这意味着如果检索到的上下文不够，LLM**就无法**动态搜索更多信息。
 - 如果查询需要多个检索步骤，无法通过复杂的查询进行推理。
 
-##### 09：Agentic AI
+##### 09：Agent Skills
+
+- 思想：让 Agent 先知道"有什么能力"，需要时再学习"如何使用"，而不是一开始就把所有知识装进上下文。【**按需加载**】
+
+**渐进式披露（Progressive Disclosure）**：是一种上下文管理策略，将知识加载分为三个层次：
+
+| 层次     | 加载时机       | 内容                   | 成本         |
+| -------- | -------------- | ---------------------- | ------------ |
+| 元数据层 | Agent启动时    | Skill的名称和描述      | 100tokens/个 |
+| 指令层   | 任务触发时     | 完整的SOP文档          | 2-3ktokens   |
+| 资源层   | 执行过程中按需 | 参考文档或脚本执行结果 | 按需计算     |
+
+- 启动时轻量：只加载必要的元数据，支持大量 Skill 注册；
+- 执行时精准：只加载相关的 Skill，避免无关知识干扰；
+- 使用时完整：保持 SOP 的逻辑连贯性，**不碎片化**。
+
+##### Skill 结构
+
+- ```
+  skill-name/
+  ├── SKILL.md          # 必需：包含元数据和指令
+  ├── references/       # 可选：详细参考文档
+  │   └── api-doc.md
+  ├── scripts/          # 可选：可执行脚本
+  │   └── process.py
+  └── assets/           # 可选：模板和资源    
+  		└── template.html
+  ```
+
+  
+
+##### 10：Agentic AI
 
 - 定义：能够理解高层次目标、拆解目标、自主制定计划（规划）、执行多步骤任务、并能在过程中动态调整决策的人工智能系统。
 
