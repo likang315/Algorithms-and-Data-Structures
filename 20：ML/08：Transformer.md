@@ -15,7 +15,7 @@
 
 ##### 02：Transformer 架构
 
-<img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/20%EF%BC%9AML/transformer.png?raw=true" alt="transformer" style="zoom:30%;" />
+<img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/20%EF%BC%9AML/photos/transformer.png?raw=true" alt="transformer" style="zoom:30%;" />
 
 - Encoder 结构：由 N=6 个相同的 encoder block 堆叠而成，每一层（ layer）主要有两个子层（sub-layers）:
   - 多头注意力机制（`Multi-Head Attention`）
