@@ -26,7 +26,7 @@
   - 指令微调：标注数据集由指令和答案对组成。
   - 分类微调：标注数据集由文本及其关联的类别标签组成。
 
-<img src="/Users/likang/Downloads/LLM-Build.png" alt="LLM-Build" style="zoom:40%;" />
+<img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/LLM-Build.png" alt="LLM-Build" style="zoom:40%;" />
 
 ##### 04：Transforrmer 架构
 
@@ -44,7 +44,7 @@
 - 自回归模型**将之前的输出作为未来预测的输入**。在GPT中，**每个新单词都是根据它之前的序列来选择的**，提高最终文本的一致性。
   - 通过已知的前序词预测下一个词。
 
-<img src="/Users/likang/Downloads/GPT.png" alt="GPT" style="zoom:30%;" />
+<img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/GPT.png" alt="GPT" style="zoom:30%;" />
 
 
 ###### 涌现
