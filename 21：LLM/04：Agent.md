@@ -15,6 +15,13 @@
   -  规划（Planning） ：任务拆解、子任务生成及自我反思；
   -  记忆（Memory） ：长期记忆存储与上下文管理，用于处理复杂任务
   -  工具使用（Tool Usage） ：通过API或外部工具增强Agent的能力（如搜索、文件操作，代码执行等）；
+ 
+##### 02：ReAct 模式（Reasoning and Acting）
+
+- **推理和行动**，一种 AI 智能体的架构设计范式，AI 智能体使用链式推理和工具使用行动来综合运用。
+- 通过让大模型**解释其思考过程并通过工具核实事实**，减少幻觉和错误传播问题。
+- <img src="https://github.com/likang315/Algorithms-and-Data-Structures/blob/master/21%EF%BC%9ALLM/photos/ReAct.png" alt="ReAct" style="zoom:50%;" />
+
 
 ##### 02：Multi-Agent（多 Agent）
 
